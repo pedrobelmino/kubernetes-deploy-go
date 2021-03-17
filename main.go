@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"log"
+	"os"
 )
-
-const webContent = "dev-ops-ninja:v99"
 
 func main() {
 	http.HandleFunc("/", helloHandler)
@@ -14,5 +13,6 @@ func main() {
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, webContent)
+	name, err := os.Hostname()
+	fmt.Fprint(w, name)
 }
