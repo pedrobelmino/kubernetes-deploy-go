@@ -13,6 +13,9 @@ func main() {
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	name := os.Hostname()
+	name, err  := os.Hostname()
+	if err != nil {
+		panic(err)
+	}
 	fmt.Fprint(w, name)
 }
