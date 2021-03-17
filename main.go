@@ -13,6 +13,6 @@ func main() {
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	name, err := os.Hostname()
+	name := os.Hostname()
 	fmt.Fprint(w, name)
 }
